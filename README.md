@@ -1,10 +1,8 @@
 # Pantry
 
-This is the sample application for
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](http://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/).
-
+This application helps you track the inventory of
+your kitchen, suggests recipes, and auto-generates
+grocery lists.
 ## License
 
 All source code in the [Ruby on Rails Tutorial](http://railstutorial.org/)
