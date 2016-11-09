@@ -13,6 +13,8 @@ gem 'coffee-rails', '4.2.1'
 gem 'jquery-rails', '4.1.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.4.1'
+gem 'pg'
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
@@ -34,7 +36,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.18.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
