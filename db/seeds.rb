@@ -26,4 +26,26 @@ user  = users.first
 following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
-followers.each { |follower| follower.follow(user) }   
+followers.each { |follower| follower.follow(user) } 
+
+
+#Ingredients
+Ingredient.create!(description: "Brocolli")
+Ingredient.create!(description: "Milk")
+Ingredient.create!(description: "Eggs")
+Ingredient.create!(description: "Bread")
+Ingredient.create!(description: "Chicken")
+Ingredient.create!(description: "Sugar")
+Ingredient.create!(description: "Cheese")
+Ingredient.create!(description: "Cereal")
+Ingredient.create!(description: "Apples")
+Ingredient.create!(description: "Oranges")
+Ingredient.create!(description: "Ham")
+Ingredient.create!(description: "Flour")
+Ingredient.create!(description: "brussel sprouts")
+Ingredient.create!(description: "Wraps")
+Ingredient.create!(description: "Lettuce")
+Ingredient.create!(description: "Spinach")
+Ingredient.create!(description: "Yogurt")
+
+  
