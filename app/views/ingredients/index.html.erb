@@ -1,0 +1,10 @@
+<% provide(:title, 'All Ingredients') %>
+<h1>All Ingredients</h1>
+
+<ul class="users">
+  <% @ingredients.each do |ingredient| %>
+    <li>
+      <%= link_to ingredient.description %>
+    </li>
+  <% end %>
+</ul>
