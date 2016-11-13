@@ -39,20 +39,20 @@ class StockTest < ActiveSupport::TestCase
       assert stock.quantity == 0
     end
 
-    # test "refill stock" do
-    #   michael = users(:michael)
-    #   stock = michael.add_to_pantry(ingredients(:broccoli))
-    #   assert stock.quantity == 2
-    #   stock.toggle
-    #   assert stock.quantity == 1
-    #   stock.refill
-    #   assert stock.quantity == 2
-    #   stock.toggle
-    #   stock.toggle
-    #   assert stock.quantity == 0
-    #   stock.refill
-    #   assert stock.quantity == 2
-    # end
+    test "refill stock" do
+      michael = users(:michael)
+      stock = michael.add_to_pantry(ingredients(:broccoli))
+      assert stock.quantity == 2
+      stock.toggle
+      assert stock.quantity == 1
+      stock.refill
+      assert stock.quantity == 2
+      stock.toggle
+      stock.toggle
+      assert stock.quantity == 0
+      stock.refill
+      assert stock.quantity == 2
+    end
 
 
 end
