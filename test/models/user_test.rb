@@ -117,6 +117,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not michael.has_ingredient?(broccoli)
   end
 
+
   # test "should add ingredient not yet in database" do
   #   michael = users(:michael)
   #   michael.add_to_pantry('carrot')
