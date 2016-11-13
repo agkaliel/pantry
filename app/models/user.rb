@@ -78,14 +78,13 @@ class User < ApplicationRecord
 
   #Ingredient Methods
 
-  #Adds an ingredient to the users fridge, and to the database 
-  #if it is not there already
+  #Adds an ingredient to the users fridge
   def add_to_pantry(ingredient)
     stocks.create(ingredient_id: ingredient.id, quantity: 2, active: true)
   end
 
   #Removes an ingredient from the users fridge
-  def remove_ingredient(ingredient)
+  def remove_from_pantry(ingredient)
     stocks.find_by(ingredient_id: ingredient.id).destroy
   end
 

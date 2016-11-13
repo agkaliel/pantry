@@ -113,7 +113,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not michael.has_ingredient?(broccoli)
     michael.add_to_pantry(broccoli)
     assert michael.has_ingredient?(broccoli)
-    michael.remove_ingredient(broccoli)
+    michael.remove_from_pantry(broccoli)
     assert_not michael.has_ingredient?(broccoli)
   end
 

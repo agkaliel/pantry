@@ -1,5 +1,10 @@
 <li>
   <div>
 	<%= ingredient.description %>
+	<%= form_for(current_user.stocks.find_by(ingredient_id: ingredient.id),
+             html: { method: :delete }) do |f| %>
+    <div><%= hidden_field_tag :ingredient_id, ingredient.id %></div>
+  	<%= f.submit "Remove", class: "btn" %>
+	<% end %>
   </div>
 </li>
