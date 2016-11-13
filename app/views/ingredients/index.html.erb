@@ -2,13 +2,5 @@
 <h1>Add Ingredients</h1>
 
 <ul class="users">
-  <% @ingredients.each do |ingredient| %>
-    <li>
-      <%=ingredient.description %>
-	  <%= form_for(current_user.stocks.build) do |f| %>
-	  <div><%= hidden_field_tag :ingredient_id, ingredient.id %></div>
-	  <%= f.submit "Add to Pantry", class: "fa fa-plus" %>
-	  <% end %>
-    </li>
-  <% end %>
+	<%= render @ingredients %>
 </ul>

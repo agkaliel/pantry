@@ -1,0 +1,7 @@
+<li>
+  <%= ingredient.description %>
+  | <%= form_for(current_user.stocks.build) do |f| %>
+  <div><%= hidden_field_tag :ingredient_id, ingredient.id %></div>
+  <%= f.submit "Add", style: "initial"%>
+  <% end %>
+</li>
