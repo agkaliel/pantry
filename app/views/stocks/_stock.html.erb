@@ -1,0 +1,5 @@
+<li>
+  <%= @ingredients.find_by(id: stock.ingredient_id).description %>
+  <%= link_to "delete", stock, method: :delete %>
+
+</li>

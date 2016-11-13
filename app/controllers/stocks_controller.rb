@@ -7,8 +7,7 @@ class StocksController < ApplicationController
   end
 
   def destroy
-  	ingredient = Ingredient.find(params[:ingredient_id])
-  	current_user.remove_from_pantry(ingredient)
+    Stock.find(params[:id]).destroy
   	redirect_to pantry_user_path(current_user)
   end
 
