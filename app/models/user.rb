@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships 
 
+
+  has_many :stocks, dependent:  :destroy
+  has_many :ingredients, through: :stocks
+
   attr_accessor :remember_token
 	before_save { self.email = email.downcase }
 	validates(:name, presence: true, length: {maximum: 50})	
@@ -70,5 +74,25 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+
+  #Ingredient Methods
+
+  #Adds an ingredient to the users fridge, and to the database 
+  #if it is not there already
+  def add_to_pantry(ingredient)
+    stocks.create(ingredient_id: ingredient.id, quantity: 2, active: true)
+  end
+
+  #Removes an ingredient from the users fridge
+  def remove_ingredient(ingredient)
+    stocks.find_by(ingredient_id: ingredient.id).destroy
+  end
+
+  #Returns true if the current user has the ingredient in their fridge
+  def has_ingredient?(ingredient)
+    ingredients.include?(ingredient)
+  end
+
 
 end

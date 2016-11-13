@@ -1,4 +1,6 @@
 Rails.application.routes.draw do	
+  get 'stocks/create'
+
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   root 'static_pages#home'
@@ -10,11 +12,12 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :pantry
     end
   end 
   resources :microposts,      only: [:create, :destroy]
   resources :relationships,   only: [:create, :destroy]
+  resources :stocks,          only: [:create, :destroy]
   resources :ingredients
 
 end

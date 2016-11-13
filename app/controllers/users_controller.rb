@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :index, :update, :delete, 
                                         :following, :followers]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update, :pantry]
   before_action :admin_user,     only: :destroy
 
 
@@ -61,6 +61,14 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
+  end
+
+  #Controllers for dealing with ingredients
+  def pantry
+    @title = "My Pantry"
+    @user = User.find(params[:id])
+    @ingredients = @user.ingredients
+    render 'show_pantry'
   end
 
   private

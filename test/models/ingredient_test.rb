@@ -20,4 +20,11 @@ class IngredientTest < ActiveSupport::TestCase
     @ingredient.save
     assert_not duplicate_ingredient.valid?
   end
+
+  test "show users who have this ingredient" do
+    michael = users(:michael)
+    broccoli = ingredients(:broccoli)
+    michael.add_to_pantry(broccoli)
+    assert broccoli.users.include?(michael)
+  end
 end

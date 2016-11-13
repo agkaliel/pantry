@@ -106,5 +106,20 @@ class UserTest < ActiveSupport::TestCase
       assert_not michael.feed.include?(post_unfollowed)
     end
   end
+
+  test "add and remove an ingredient from fridge" do
+    michael = users(:michael)
+    broccoli = ingredients(:broccoli)
+    assert_not michael.has_ingredient?(broccoli)
+    michael.add_to_pantry(broccoli)
+    assert michael.has_ingredient?(broccoli)
+    michael.remove_ingredient(broccoli)
+    assert_not michael.has_ingredient?(broccoli)
+  end
+
+  # test "should add ingredient not yet in database" do
+  #   michael = users(:michael)
+  #   michael.add_to_pantry('carrot')
+  # end
 end
   

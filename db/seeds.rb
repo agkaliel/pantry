@@ -15,7 +15,7 @@ User.create!(name:  "Example User",
 end
 
 users = User.order(:created_at).take(6)
-50.times do
+10.times do
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.microposts.create!(content: content) }
 end
@@ -23,14 +23,14 @@ end
 # Following relationships
 users = User.all
 user  = users.first
-following = users[2..50]
-followers = users[3..40]
+following = users[2..9]
+followers = users[3..6]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) } 
 
 
 #Ingredients
-Ingredient.create!(description: "Brocolli")
+Ingredient.create!(description: "Broccoli")
 Ingredient.create!(description: "Milk")
 Ingredient.create!(description: "Eggs")
 Ingredient.create!(description: "Bread")
@@ -47,5 +47,12 @@ Ingredient.create!(description: "Wraps")
 Ingredient.create!(description: "Lettuce")
 Ingredient.create!(description: "Spinach")
 Ingredient.create!(description: "Yogurt")
+
+user = users.first
+ingredients = Ingredient.all
+ingredients_to_add = ingredients[4..8]
+ingredients_to_add.each { |ingredient| user.add_to_pantry(ingredient)}
+
+
 
   

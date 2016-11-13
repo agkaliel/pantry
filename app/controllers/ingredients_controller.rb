@@ -3,7 +3,7 @@ class IngredientsController < ApplicationController
 
 
   def index
-  	@ingredients = Ingredient.all
+  	@ingredients = Ingredient.all - current_user.ingredients
   end
 
 
