@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  post 'stocks/create'
   delete '/logout', to: 'sessions#destroy'
   resources :users do
     member do
