@@ -68,7 +68,7 @@ class UsersController < ApplicationController
     @title = "My Pantry"
     @user = User.find(params[:id])
     @ingredients = @user.ingredients
-    @stocks = @user.stocks
+    @stocks = @user.stocks.order('id')
     render 'show_pantry'
   end
 

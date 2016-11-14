@@ -53,6 +53,4 @@ class StockTest < ActiveSupport::TestCase
       stock.refill
       assert stock.quantity == 2
     end
-
-
 end

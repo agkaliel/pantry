@@ -10,12 +10,14 @@ class Stock < ApplicationRecord
   	if quant > 0
   	  quant -= 1
   	self.quantity = quant
+  	self.save
     end
   end
 
   def refill
   	if self.quantity < 2
   		self.quantity = 2
+  		self.save
   	end
   end
 end

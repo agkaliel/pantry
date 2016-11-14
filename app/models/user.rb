@@ -92,6 +92,4 @@ class User < ApplicationRecord
   def has_ingredient?(ingredient)
     ingredients.include?(ingredient)
   end
-
-
 end

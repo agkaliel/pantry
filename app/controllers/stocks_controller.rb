@@ -11,4 +11,15 @@ class StocksController < ApplicationController
   	redirect_to pantry_user_path(current_user)
   end
 
+  def toggle
+  	stock = Stock.find(params[:id])
+  	stock.toggle
+  	redirect_to pantry_user_path(current_user)
+  end
+
+  def refill
+  	stock = Stock.find(params[:id])
+  	stock.refill
+  	redirect_to pantry_user_path(current_user)
+  end
 end

@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   end 
   resources :microposts,      only: [:create, :destroy]
   resources :relationships,   only: [:create, :destroy]
-  resources :stocks,          only: [:create, :destroy]
+  resources :stocks,          only: [:create, :destroy] do
+    member do
+      post :toggle, :refill
+    end
+  end
   resources :ingredients
 
 end
