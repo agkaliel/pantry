@@ -1,9 +1,13 @@
 class StocksController < ApplicationController
 
+
   def create
-  	ingredient = Ingredient.find(params[:ingredient_id])
-  	current_user.add_to_pantry(ingredient)
-  	redirect_to ingredients_path
+  	ingredient = Ingredient.find(params[:id])
+    current_user.add_to_pantry(ingredient)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def destroy

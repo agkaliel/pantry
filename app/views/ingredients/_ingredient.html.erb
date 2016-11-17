@@ -1,4 +1,5 @@
-<li>
+<li class = 'ingredient<%= ingredient.id %>'>
   <%= ingredient.description %>
-  | <%= link_to "Add", stocks_path(ingredient_id: ingredient.id), method: :post %>
+  |  <a id='<%= ingredient.id %>' style="cursor: pointer"> Add </a> 
 </li>
+
