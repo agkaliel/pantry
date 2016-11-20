@@ -12,18 +12,27 @@ class StocksController < ApplicationController
 
   def destroy
     Stock.find(params[:id]).destroy
-  	redirect_to pantry_user_path(current_user)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def toggle
   	stock = Stock.find(params[:id])
   	stock.toggle
-  	redirect_to pantry_user_path(current_user)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def refill
   	stock = Stock.find(params[:id])
   	stock.refill
-  	redirect_to pantry_user_path(current_user)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 end

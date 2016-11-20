@@ -20,3 +20,32 @@
     <% end %>
   </div>
 </div>
+
+
+<script>
+$(document).ready(function(){
+  $(".toggle").click(function(){
+    $.ajax({
+      type: "POST",
+      url: "/stocks/" + event.target.id + "/toggle",
+      });
+   });
+  $(".refill").click(function(){
+    $.ajax({
+      type: "POST",
+      url: "/stocks/" + event.target.id + "/refill",
+      });
+   });
+  $(".delete").click(function(){
+    var el = $('.stock' + event.target.id);
+    $.ajax({
+      type: "DELETE",
+      url: "/stocks/" + event.target.id,
+      success: function(data){
+        el.remove();
+      }
+      });
+   });
+});
+</script>
+

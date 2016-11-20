@@ -1,7 +1,10 @@
-<li>
+<li class="stock<%=stock.id%>"> 
   <%= @ingredients.find_by(id: stock.ingredient_id).description %>
   | <%= stock.quantity %>
-  | <%= link_to "Toggle", toggle_stock_path(stock), method: :post %>
-  | <%= link_to "Refill", refill_stock_path(stock), method: :post %>
-  | <%= link_to "delete", stock, method: :delete %>
+  | <a id='<%= stock.id %>' class="toggle" style="cursor: pointer">
+    Toggle </a> 
+  | <a id='<%= stock.id %>' class="refill" style="cursor: pointer">
+    Refill </a> 
+  | <a id='<%= stock.id %>' class="delete" style="cursor: pointer">
+    Delete </a> 
 </li>
