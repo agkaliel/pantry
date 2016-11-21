@@ -1,10 +1,40 @@
 <li class="stock<%=stock.id%>"> 
-  <%= @ingredients.find_by(id: stock.ingredient_id).description %>
-  | <%= stock.quantity %>
-  | <a id='<%= stock.id %>' class="toggle" style="cursor: pointer">
-    Toggle </a> 
-  | <a id='<%= stock.id %>' class="refill" style="cursor: pointer">
-    Refill </a> 
-  | <a id='<%= stock.id %>' class="delete" style="cursor: pointer">
-    Delete </a> 
+<!-- 	<%= @ingredients.find_by(id: stock.ingredient_id).description %>
+	<span class="glyphicon glyphicon-alert" style="color: #fcf8e3; border-color: black;"></span>
+	| <%= stock.quantity %>
+	| <a id='<%= stock.id %>' class="toggle" style="cursor: pointer">
+	Toggle </a> 
+	| <a id='<%= stock.id %>' class="refill" style="cursor: pointer">
+	Refill </a> 
+	| <a id='<%= stock.id %>' class="delete" style="cursor: pointer">
+	Delete </a>  -->
+
+
+
+	<% if stock.quantity == 2 %>
+	<div class="alert alert-success alert-white rounded">
+	<% elsif stock.quantity == 1 %>
+    <div class="alert alert-warning alert-white rounded">
+	<% else %>
+    <div class="alert alert-danger alert-white rounded">
+	<% end %>
+        <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+        <div class="icon">
+        	<% if stock.quantity == 2 %>
+              <i class="fa fa-check"></i>
+        	<% elsif stock.quantity == 1 %>
+              <i class="fa fa-warning"></i>
+        	<% else %>
+              <i class="fa fa-times-circle"></i>
+            <% end %>
+        </div>
+        <strong><%= @ingredients.find_by(id: stock.ingredient_id).description %></strong> 
+        |<a id='<%= stock.id %>' class="toggle" style="cursor: pointer">
+	       Toggle </a> 
+	    |  <a id='<%= stock.id %>' class="refill" style="cursor: pointer">
+	       Refill </a> 
+	    | <a id='<%= stock.id %>' class="delete" style="cursor: pointer">
+	       Delete </a>
+
+    </div>
 </li>

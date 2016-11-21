@@ -1,26 +1,37 @@
 <% provide(:title, @title) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= gravatar_for @user %>
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
-      <span><b>Microposts:</b> <%= @user.microposts.count %></span>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <h3><%= @title %></h3>
-    <% if @ingredients.any? %>
-      <ul class="users follow">
-        <%= render @stocks %>
-      </ul>
-    <% end %>
-  </div>
+<h3><%= @title %></h3>
+<div class="container bootstrap snippet">
+  <%= render @stocks %>
 </div>
 
+
+<!-- <div class="container bootstrap snippet">
+    <div class="alert alert-success alert-white rounded">
+        <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+        <div class="icon">
+            <i class="fa fa-check"></i>
+        </div>
+        <strong>Broccoli</strong> 
+    </div>
+    <div class="alert alert-success alert-white rounded">
+        <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+        <strong>Cereal</strong> 
+    </div>  
+    <div class="alert alert-warning alert-white rounded">
+        <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+        <div class="icon">
+            <i class="fa fa-warning"></i>
+        </div>
+        <strong>Flour</strong> 
+    </div>     
+    <div class="alert alert-danger alert-white rounded">
+        <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+        <div class="icon">
+            <i class="fa fa-times-circle"></i>
+        </div>
+        <strong>Yogurt</strong> 
+    </div>    
+</div> -->
 
 <script>
 $(document).ready(function(){
