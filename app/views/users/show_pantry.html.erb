@@ -1,5 +1,6 @@
 <% provide(:title, @title) %>
 <h3><%= @title %></h3>
+<br>
 <div class="container bootstrap snippet">
   <%= render @stocks %>
 </div>
@@ -36,22 +37,40 @@
 <script>
 $(document).ready(function(){
   $(".toggle").click(function(){
+    var el = $('.stock' + $(this).attr('id'));
+    var el2 = $('.icon' + $(this).attr('id'));
     $.ajax({
       type: "POST",
-      url: "/stocks/" + event.target.id + "/toggle",
+      url: "/stocks/" + $(this).attr('id') + "/toggle",
+      success: function(data){
+        if (el.children().first().hasClass('alert-warning')) {
+          el.children().first().addClass('alert-danger').removeClass('alert-warning');
+          el2.children().first().addClass('fa-times-circle').removeClass('fa-warning');
+        }
+        else if (el.children().first().hasClass('alert-success')){
+          el.children().first().addClass('alert-warning').removeClass('alert-success');
+          el2.children().first().addClass('fa-warning').removeClass('fa-check');
+        }
+      }
       });
    });
   $(".refill").click(function(){
+    var el = $('.stock' + $(this).attr('id'));
+    var el2 = $('.icon' + $(this).attr('id'));
     $.ajax({
       type: "POST",
-      url: "/stocks/" + event.target.id + "/refill",
+      url: "/stocks/" + $(this).attr('id') + "/refill",
+      success: function(data){
+        el.children().first().addClass('alert-success').removeClass('alert-danger alert-warning');
+        el2.children().first().addClass('fa-check').removeClass('fa-warning fa-times-circle');       
+      }
       });
    });
   $(".delete").click(function(){
-    var el = $('.stock' + event.target.id);
+    var el = $('.stock' + $(this).attr('id'));
     $.ajax({
       type: "DELETE",
-      url: "/stocks/" + event.target.id,
+      url: "/stocks/" + $(this).attr('id'),
       success: function(data){
         el.remove();
       }
